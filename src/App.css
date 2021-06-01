@@ -1,0 +1,116 @@
+html,
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+.paperBox{
+    background: #fff;
+    width: 600px;
+    height: 650px;
+    align-content: center;
+    padding: 2rem;
+   
+}
+
+.imgLog{
+    width: 50px;
+    height: 50px;
+}
+
+.btnLog{
+    width: 28rem;
+    padding: 0.5rem;
+}
+
+.imgLogoNav{
+    width: 10vw;
+}
+
+.NavItem{
+    display: inline;
+    position: relative;
+    left: 2rem;
+    gap: 20px;
+}
+.loginCtr{
+background:#FD4664 ;
+width:100vw ;
+height:100vh ;
+overflow: hidden;
+}
+
+.imgCtr{
+    padding: 8vh;
+    gap: 1.5vw;
+}
+
+.btnCourse{
+    color: #FD4664;
+
+}
+
+.cardGrid{
+    padding-top: 1rem;
+    padding-bottom: 0.1rem ;
+}
+
+.cardCourse{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardMedia{
+    padding-top:56.25% ;
+}
+
+.cardContent{
+    flex-grow: 1;
+  }
+
+.cardButton{
+    color: #FD4664;
+    font-size: 0.5rem;
+  }
+
+.topContainer{
+    width: 75vw;
+    margin-left: 10rem;
+    margin-top: 6rem;
+}
+
+.btnDash{
+    margin-bottom: 100rem;
+}
+
+.hr{
+    border: 1px solid #FD4664;
+    opacity: 0.6;
+}
+
+#profile{
+    position: relative;
+    left: 55rem;
+}
+
+.imgProfile{
+    width: 2vw;
+    
+    border-radius: 50%;
+}
+
+.btn-course{
+    position: relative;
+    top:5vh;
+    
+}
+
+#create{
+    left: 6vw;
+
+}
+
+#cancel{
+    left: 16vw;
+}
