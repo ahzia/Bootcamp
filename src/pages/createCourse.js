@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import Image from '../components/displayImage';
+import ImageUploader from 'react-images-upload';
+import Course from '../components/course'
+
+
 import { Link } from '@material-ui/core';
 
-export default function AddressForm() {
-  return (
-    <React.Fragment>
+export class createCourse extends Component {
+    constructor(props) {
+        super(props);
+         this.state = { pictures: [] };
+         this.onDrop = this.onDrop.bind(this);
+    }
+ 
+    onDrop(picture) {
+        this.setState({
+            pictures: this.state.pictures.concat(picture),
+        });
+    }
+ 
+    render() {
+          return ( 
 
 <Grid container xs justify = "center" direction = "column" alignItems = "center" className="loginCtr">
             <Grid container justify = "center" xs={12} sm={9} md={6} lg={6} >
@@ -47,7 +62,13 @@ export default function AddressForm() {
             autoComplete="Course Description"
           />
         </Grid>
-        <Image />
+        <ImageUploader
+                withIcon={true}
+                buttonText='Choose images'
+                onChange={this.onDrop}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+            />
         </Grid>
         </Grid>
 
@@ -66,7 +87,9 @@ export default function AddressForm() {
     </Grid>
 
 </Grid>
-           
-    </React.Fragment>
+   
   );
 }
+}
+
+export default createCourse

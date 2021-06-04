@@ -7,7 +7,6 @@ import calender from '../images/Google_Calendar.png';
 import classroom from '../images/google-classroom.png';
 import youtube from '../images/youtube.png';
 import {GoogleLogin} from 'react-google-login';
-import { useHistory } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 
 
