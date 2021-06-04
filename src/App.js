@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import { useHistory } from "react-router-dom";
+
 
 
 //componenets
@@ -14,12 +14,12 @@ import Dashboard from './pages/Dashboard';
 import createCourse from './pages/createCourse';
 
 
+
 class App extends Component {
     render() {
     return (
         <div className = "App" >
             <Router>
-              
                 <Switch>
                     <Route exact path="/" component={Dashboard}/>
                     <Route exact path="/login" component={login}/>
