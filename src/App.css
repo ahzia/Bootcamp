@@ -114,3 +114,13 @@ overflow: hidden;
 #cancel{
     left: 16vw;
 }
+
+.btns{
+    position: relative;
+    right: 56vw;
+}
+
+.Link{
+    text-decoration: none;
+}
+

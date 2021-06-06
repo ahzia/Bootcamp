@@ -16,7 +16,6 @@ export default function Course() {
 
   return (
     <React.Fragment>
-    <Navbar />
     <main>      
         <Container className="cardGrid" maxWidth="md">
          

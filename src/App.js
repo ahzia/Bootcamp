@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar";
 import login from './pages/login';
 import Dashboard from './pages/Dashboard';
 import createCourse from './pages/createCourse';
+import CourseList from './pages/CourseList';
 
 
 
@@ -24,6 +25,7 @@ class App extends Component {
                     <Route exact path="/" component={Dashboard}/>
                     <Route exact path="/login" component={login}/>
                     <Route exact path="/createCourse" component={createCourse}/>
+                    <Route exact path="/CourseList" component={CourseList}/>
                 </Switch>
             </Router>
         
