@@ -1,4 +1,11 @@
 const functions = require("firebase-functions");
-exports.helloWorld = functions.https.onRequest((request, response) => {
-  response.send("Hello from Firebase!");
-});
+const app = require("express")();
+
+const {
+  getAllCourses,
+  createCourse,
+} = require("./APIs/courses");
+
+app.get("/courses", getAllCourses); // /courses is the path for data
+app.post("/courses", createCourse);
+exports.api = functions.https.onRequest(app);
