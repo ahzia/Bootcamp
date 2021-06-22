@@ -9,7 +9,6 @@ import Nav from '../components/Navbar'
 
 export class Dashboard extends Component {
     render() {
-
           return ( 
                 <div>
                     <Nav />

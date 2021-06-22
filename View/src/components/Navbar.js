@@ -7,18 +7,25 @@ import Profile from '../images/profile.png';
 import { Link } from '@material-ui/core';
 
 export class Navbar extends Component {
+
     render() {
+        const authInstance=window.gapi.auth2.getAuthInstance();
+        const user =authInstance.currentUser.get()
+        const profile= user.getBasicProfile()
+        const imageUrl =profile.getImageUrl()
+        if(imageUrl===null){
+            imageUrl=Profile
+        }
         return (
             <div style={{marginBottom: "5rem"}}>
             <AppBar style={{background: "#fff"}}>
                 <Toolbar >
                     <img src={logo} alt="" style={{width:"10vw"}} />
-
                     <Button className="NavItem">Dashboard</Button>
                     <Link href="login" >
-                    <Button className="NavItem">Logout</Button>
+                    <Button className="NavItem" onClick={authInstance.signOut}>Logout</Button>
                     </Link>
-                    <img src={Profile} style={{width:"1.6rem", borderRadius: "50%"}} className="NavItem" id="profile" />
+                    <img src={imageUrl} style={{width:"1.6rem", borderRadius: "50%"}} className="NavItem" id="profile" />
                     <Button className="NavItem" id="profile">User Proflie</Button>
                 </Toolbar>
             </AppBar>
