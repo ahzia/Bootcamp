@@ -13,7 +13,6 @@ import axios from 'axios';
 
 export class login extends Component {
     componentDidMount() {
-        console.log(this.props.isSignedIn );
         if(this.props.isSignedIn === null){
             return <h1>Loadings</h1>
         }
@@ -34,7 +33,7 @@ export class login extends Component {
                             <Typography variant="body2" variant="h6">Welcome back!</Typography>
                         </Grid>
                         <Grid container justify="center" style={{ paddingTop: "6vh" }}>
-                            <div id="login-button">Sign in with Google</div>
+                            <div id="login-button">Sign in with Google Loading</div>
                         </Grid>
                         <Grid container justify="center" style={{ paddingTop: "8vh", paddingRight: "4rem", paddingLeft: "4rem" }}>
                             <Typography variant="h6" >
@@ -54,8 +53,6 @@ export class login extends Component {
                     </Paper>
                 </Grid>
             </Grid>
-
-
         );
     }
 }

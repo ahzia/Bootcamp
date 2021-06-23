@@ -1,14 +1,10 @@
-
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
+import firebase from "firebase";
+//CSS
 import './App.css';
-
-
-
 //componenets
 import Navbar from "./components/Navbar";
-
 //pages
 import Login from './pages/login';
 import Dashboard from './pages/Dashboard';
@@ -24,7 +20,7 @@ class App extends Component {
         }
     }
 
-    initializeGoogleSignIn() {
+    initializeGoogleAndFirebaseSignIn() {
         var CLIENT_ID =
             "468491144903-2c68uj6cbo2uh96d2i7ld08gfp2k0t36.apps.googleusercontent.com";
         var API_KEY = "AIzaSyA5UjwHsY0_eaq6NHFrGURV0WE4e_KVvRQ";
@@ -35,11 +31,19 @@ class App extends Component {
             "https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest",
             "https://www.googleapis.com/discovery/v1/apis/people/v1/rest"
         ];
-
         // Authorization scopes required by the API;
         var SCOPES =
             "https://www.googleapis.com/auth/classroom.profile.emails https://www.googleapis.com/auth/classroom.profile.photos https://www.googleapis.com/auth/classroom.rosters https://www.googleapis.com/auth/classroom.courses https://www.googleapis.com/auth/youtube.readonly https://www.googleapis.com/auth/youtube.force-ssl";
 
+        const firebaseConfig = {
+            apiKey: "AIzaSyA5UjwHsY0_eaq6NHFrGURV0WE4e_KVvRQ",
+            authDomain: "bootcampaf-1616570042819.firebaseapp.com",
+            projectId: "bootcampaf-1616570042819",
+            storageBucket: "bootcampaf-1616570042819.appspot.com",
+            messagingSenderId: "468491144903",
+            appId: "1:468491144903:web:0a3715f22ddbc5cbff38e2",
+            measurementId: "G-HKKQ27JHDJ"
+        };
         window.gapi.load('auth2', () => {
             window.gapi.auth2.init({
                 apiKey: API_KEY,
@@ -47,25 +51,51 @@ class App extends Component {
                 discoveryDocs: DISCOVERY_DOCS,
                 scope: SCOPES,
             }).then(() => {
-                const authInstance=window.gapi.auth2.getAuthInstance();
-                const isSignedIn=authInstance.isSignedIn.get();
-                this.setState({isSignedIn});
-                authInstance.isSignedIn.listen(isSignedIn =>{
-                    this.setState({isSignedIn});
-                })
+                const authInstance = window.gapi.auth2.getAuthInstance();
+                const isSignedIn = authInstance.isSignedIn.get();
+                this.setState({ isSignedIn });
+                authInstance.isSignedIn.listen(isSignedIn => {
+                    //listen for Signin/Signout
+                    this.setState({ isSignedIn });
+                    console.log(isSignedIn );
+                    if (isSignedIn) {
+                        //User logedin/Signedup to GAPI
+                        //Firebase Signin/Signup:
+                        var googleUser = authInstance.currentUser.get();
+                        var idToken = googleUser.getAuthResponse().id_token;
+                        firebase.initializeApp(firebaseConfig);
+                        var creds = firebase.auth.GoogleAuthProvider.credential(idToken);
+                        firebase.auth().signInWithCredential(creds).then((user) => {
+                            console.log(user);
+                            //User has an item is new(If user was new send to backend)
+                            //Send Token to Backend
+                            localStorage.setItem('AuthToken', `${idToken}`);
+                        });
+                    }
+                    else {
+                        //User Signedout from GAPI
+                        var user = firebase.auth().currentUser;
+                        if (user) {
+                            // User is signedin in firebase.
+                            //sign out user from firebase
+                            firebase.auth().signOut();
+                            console.log("Signedout");
+                        }
+                    }
+                });
             })
         })
     }
     componentDidMount() {
         const script = document.createElement('script')
         script.src = 'https://apis.google.com/js/platform.js'
-        script.onload = () => this.initializeGoogleSignIn()
+        script.onload = () => this.initializeGoogleAndFirebaseSignIn()
         document.body.appendChild(script)
     }
-    isUserSignedIn(Page){
+    isUserSignedIn(Page) {
         return this.state.isSignedIn ?
-        <Page/> :
-        <Login isSignedIn={this.state.isSignedIn}/>
+            <Page /> :
+            <Login isSignedIn={this.state.isSignedIn} />
     }
     render() {
         return (

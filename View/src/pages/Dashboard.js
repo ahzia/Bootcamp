@@ -26,7 +26,7 @@ export class Dashboard extends Component {
                     <Course />
                     <Grid  className="topContainer" >
                         <Typography  gutterBottom>
-                            Createrd Courses
+                            Created Courses
                             <hr className="hr" />
                         </Typography>
                         <Link href="createCourse" >
@@ -36,16 +36,9 @@ export class Dashboard extends Component {
                         </Link>
                     </Grid>
                     <Course />
-                    <Grid  className="topContainer" >
-                    
+                    <Grid  className="topContainer" > 
             </Grid>
-
-           
-                </div>     
-         
-
-           
-       
+                </div>      
         );
     }
 }
