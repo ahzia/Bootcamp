@@ -1,27 +1,28 @@
 const {db} = require("../util/admin");
 // get all courses from firebase
 exports.getAllCourses = (request, response) => {
-  db
-      .collection("Courses")
-      .get()
-      .then((data) => {
-        const courses = [];
-        data.forEach((doc) => {
-          const item=doc.data();
-          courses.push({
-            courseID: doc.id,
-            className: item.name,
-            heading: item.descriptionHeading,
-            description: item.description,
-            enrollment: item.enrollmentCode,
+    db
+        .collection("Courses")
+        .get()
+        .then((data) => {
+          const courses = [];
+          data.forEach((doc) => {
+            const item = doc.data();
+            courses.push({
+              id: doc.id,
+              name: item.name,
+              descriptionHeading: item.descriptionHeading,
+              description: item.description,
+              enrollmentCode: item.enrollmentCode,
+            });
           });
+          return response.json(courses);
+          
+        })
+        .catch((err) => {
+          console.error(err);
+          return response.status(500).json({error: err.code});
         });
-        return response.json(courses);
-      })
-      .catch((err) => {
-        console.error(err);
-        return response.status(500).json({error: err.code});
-      });
 };
 exports.createCourse = (request, response) => {
   if (request.body.courseId.trim() === "") {
@@ -37,7 +38,7 @@ exports.createCourse = (request, response) => {
   }
 
   const newCourse = {
-    courseId: request.body.courseId,
+    id: request.body.id,
     name: request.body.name,
     enrollmentCode: request.body.enrollmentCode,
     description: request.body.description,
@@ -50,7 +51,7 @@ exports.createCourse = (request, response) => {
       .collection("Courses")
       .doc(request.body.courseId)
       .set(newCourse)
-      .then((doc)=>{
+      .then((doc) => {
         const responseCourse = newCourse;
         return response.json(responseCourse);
       })

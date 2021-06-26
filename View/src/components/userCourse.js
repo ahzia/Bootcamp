@@ -13,7 +13,6 @@ export default function Course(props) {
   if(props.data===null){
    return <h1>Loadings</h1>
   }
-  console.log("data: "+ props.data);
   return (
     <React.Fragment>
     <main>      
@@ -39,9 +38,6 @@ export default function Course(props) {
                   <CardActions>
                     <Button size="small" className="cardButton">
                     Read more...
-                    </Button>
-                    <Button size="small" className="cardButton">
-                    Join Course
                     </Button>
                   </CardActions>
                 </Card>

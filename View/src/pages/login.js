@@ -6,9 +6,6 @@ import meet from '../images/google-meet.png';
 import calender from '../images/Google_Calendar.png';
 import classroom from '../images/google-classroom.png';
 import youtube from '../images/youtube.png';
-import { GoogleLogin } from 'react-google-login';
-import Button from '@material-ui/core/Button';
-import axios from 'axios';
 
 
 export class login extends Component {

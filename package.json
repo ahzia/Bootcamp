@@ -1,7 +1,11 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "firebase": "^8.6.7",
-    "firebase-admin": "^9.9.0"
+    "firebase-admin": "^9.9.0",
+    "firebase-functions": "^3.14.1",
+    "google-auth-library": "^7.1.2"
   }
 }

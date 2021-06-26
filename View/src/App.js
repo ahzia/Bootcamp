@@ -19,7 +19,12 @@ class App extends Component {
             isSignedIn: null
         }
     }
-
+    insertGapiScript() {
+        const script = document.createElement('script')
+        script.src = 'https://apis.google.com/js/api.js'
+        script.onload = () => { this.initializeGoogleAndFirebaseSignIn() }
+        document.body.appendChild(script)
+    }
     initializeGoogleAndFirebaseSignIn() {
         var CLIENT_ID =
             "468491144903-2c68uj6cbo2uh96d2i7ld08gfp2k0t36.apps.googleusercontent.com";
@@ -44,20 +49,19 @@ class App extends Component {
             appId: "1:468491144903:web:0a3715f22ddbc5cbff38e2",
             measurementId: "G-HKKQ27JHDJ"
         };
-        window.gapi.load('auth2', () => {
-            window.gapi.auth2.init({
+        window.gapi.load('client', () => {
+            window.gapi.client.init({
                 apiKey: API_KEY,
                 clientId: CLIENT_ID,
                 discoveryDocs: DISCOVERY_DOCS,
                 scope: SCOPES,
-            }).then(() => {
+              })
+            .then(() => {
                 const authInstance = window.gapi.auth2.getAuthInstance();
                 const isSignedIn = authInstance.isSignedIn.get();
                 this.setState({ isSignedIn });
                 authInstance.isSignedIn.listen(isSignedIn => {
                     //listen for Signin/Signout
-                    this.setState({ isSignedIn });
-                    console.log(isSignedIn );
                     if (isSignedIn) {
                         //User logedin/Signedup to GAPI
                         //Firebase Signin/Signup:
@@ -66,11 +70,11 @@ class App extends Component {
                         firebase.initializeApp(firebaseConfig);
                         var creds = firebase.auth.GoogleAuthProvider.credential(idToken);
                         firebase.auth().signInWithCredential(creds).then((user) => {
-                            console.log(user);
                             //User has an item is new(If user was new send to backend)
                             //Send Token to Backend
                             localStorage.setItem('AuthToken', `${idToken}`);
                         });
+
                     }
                     else {
                         //User Signedout from GAPI
@@ -87,14 +91,11 @@ class App extends Component {
         })
     }
     componentDidMount() {
-        const script = document.createElement('script')
-        script.src = 'https://apis.google.com/js/platform.js'
-        script.onload = () => this.initializeGoogleAndFirebaseSignIn()
-        document.body.appendChild(script)
+        this.insertGapiScript();
     }
     isUserSignedIn(Page) {
         return this.state.isSignedIn ?
-            <Page /> :
+            <Page isSignedIn={this.state.isSignedIn} /> :
             <Login isSignedIn={this.state.isSignedIn} />
     }
     render() {
@@ -107,7 +108,7 @@ class App extends Component {
                         <Route exact path="/login" component={() => this.isUserSignedIn(Dashboard)} />
                         <Route exact path="/dashboard" component={() => this.isUserSignedIn(Dashboard)} />
                         <Route exact path="/createCourse" component={createCourse} />
-                        <Route exact path="/CourseList" component={CourseList} />
+                        <Route exact path="/CourseList" component={() => this.isUserSignedIn(CourseList)}/>
                     </Switch>
                 </Router>
 

@@ -1,46 +1,72 @@
 import React, { Component, useState } from 'react'
 import Container from '@material-ui/core/Container';
 import { Grid, Typography } from '@material-ui/core';
-import Course from '../components/course';
+import Course from '../components/userCourse';
 import Button from '@material-ui/core/Button';
 import { Link } from '@material-ui/core';
-import Nav from '../components/Navbar'
+import Nav from '../components/Navbar';
+import axios from 'axios'
 
+import {getUserEnrolledCourses} from '../api/gapi/classroom'
+import {getUserCourses} from '../api/gapi/classroom'
 
 export class Dashboard extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            enrolledCourses: null,
+            myCourses: null
+        }
+    }
+    componentDidMount() {
+        if(this.props.isSignedIn === null){
+            return <h1>Loadings</h1>
+        }
+        getUserEnrolledCourses().then((response) => {
+            this.setState({
+                enrolledCourses: response
+            });
+        });
+        getUserCourses().then((response) => {
+            this.setState({
+                myCourses: response
+            });
+            console.log(response);
+        });
+    }
     render() {
-          return ( 
-                <div>
-                    <Nav />
-                    <Grid  className="topContainer" >
-                        <Typography  gutterBottom>
-                            Enrolled Courses
-                            <hr className="hr" />
-                        </Typography>
-                        <Link href="CourseList" >
+        return (
+            <div>
+                <Nav />
+                <Grid className="topContainer" >
+                    <Typography gutterBottom>
+                        Enrolled Courses
+                        <hr className="hr" />
+                    </Typography>
+                    <Link href="CourseList" >
                         <Button variant="outlined" size="small">
                             Join new Course
                         </Button>
-                        </Link>
-                    </Grid>
-                    <Course />
-                    <Grid  className="topContainer" >
-                        <Typography  gutterBottom>
-                            Created Courses
-                            <hr className="hr" />
-                        </Typography>
-                        <Link href="createCourse" >
+                    </Link>
+                </Grid>
+                <Course data = {this.state.enrolledCourses}/>
+                <Grid className="topContainer" >
+                    <Typography gutterBottom>
+                        Created Courses
+                        <hr className="hr" />
+                    </Typography>
+                    <Link href="createCourse" >
                         <Button variant="outlined" size="small">
                             Create new Course
                         </Button>
-                        </Link>
-                    </Grid>
-                    <Course />
-                    <Grid  className="topContainer" > 
-            </Grid>
-                </div>      
+                    </Link>
+                </Grid>
+                <Course data = {this.state.myCourses}/>
+                <Grid className="topContainer" >
+                </Grid>
+            </div>
         );
     }
 }
 
-    export default Dashboard
+export default Dashboard
