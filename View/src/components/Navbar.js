@@ -5,14 +5,13 @@ import Button from '@material-ui/core/Button';
 import logo from '../images/white_Main.png'
 import Profile from '../images/profile.png';
 import { Link } from '@material-ui/core';
-
 export class Navbar extends Component {
-
     render() {
         const authInstance=window.gapi.auth2.getAuthInstance();
         const user =authInstance.currentUser.get()
         const profile= user.getBasicProfile()
         const imageUrl =profile.getImageUrl()
+        const userName=profile.getName()
         if(imageUrl===null){
             imageUrl=Profile
         }
@@ -26,12 +25,11 @@ export class Navbar extends Component {
                     <Button className="NavItem" onClick={authInstance.signOut}>Logout</Button>
                     </Link>
                     <img src={imageUrl} style={{width:"1.6rem", borderRadius: "50%"}} className="NavItem" id="profile" />
-                    <Button className="NavItem" id="profile">User Proflie</Button>
+                    <Button className="NavItem" id="profile">{userName}</Button>
                 </Toolbar>
             </AppBar>
             </div>
         )
     }
 }
-
 export default Navbar

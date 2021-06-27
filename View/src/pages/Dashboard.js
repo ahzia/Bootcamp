@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import { Link } from '@material-ui/core';
 import Nav from '../components/Navbar';
 import axios from 'axios'
-
+import Loading from '../components/loading'
 import {getUserEnrolledCourses} from '../api/gapi/classroom'
 import {getUserCourses} from '../api/gapi/classroom'
 
@@ -20,7 +20,7 @@ export class Dashboard extends Component {
     }
     componentDidMount() {
         if(this.props.isSignedIn === null){
-            return <h1>Loadings</h1>
+            return <Loading uiLoading="true" />
         }
         getUserEnrolledCourses().then((response) => {
             this.setState({

@@ -9,7 +9,7 @@ async function getAllCourses() {
             })
     })
 }
-async function createCourseInDB(course) {
+async function createCourseInDb(course) {
     axios.post('http://localhost:5000/bootcampaf-1616570042819/us-central1/api/courses', {
         id: course.id,
         name: course.name,
@@ -22,5 +22,5 @@ async function createCourseInDB(course) {
             console.log(response);
         });
 }
-export { getAllCourses }
+export { getAllCourses,createCourseInDb }
 

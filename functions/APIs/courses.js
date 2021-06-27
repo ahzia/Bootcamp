@@ -1,31 +1,30 @@
 const {db} = require("../util/admin");
 // get all courses from firebase
 exports.getAllCourses = (request, response) => {
-    db
-        .collection("Courses")
-        .get()
-        .then((data) => {
-          const courses = [];
-          data.forEach((doc) => {
-            const item = doc.data();
-            courses.push({
-              id: doc.id,
-              name: item.name,
-              descriptionHeading: item.descriptionHeading,
-              description: item.description,
-              enrollmentCode: item.enrollmentCode,
-            });
+  db
+      .collection("Courses")
+      .get()
+      .then((data) => {
+        const courses = [];
+        data.forEach((doc) => {
+          const item = doc.data();
+          courses.push({
+            id: doc.id,
+            name: item.name,
+            descriptionHeading: item.descriptionHeading,
+            description: item.description,
+            enrollmentCode: item.enrollmentCode,
           });
-          return response.json(courses);
-          
-        })
-        .catch((err) => {
-          console.error(err);
-          return response.status(500).json({error: err.code});
         });
+        return response.json(courses);
+      })
+      .catch((err) => {
+        console.error(err);
+        return response.status(500).json({error: err.code});
+      });
 };
 exports.createCourse = (request, response) => {
-  if (request.body.courseId.trim() === "") {
+  if (request.body.id.trim() === "") {
     return response.status(400).json({courseId: "Must not be empty"});
   }
 
@@ -49,7 +48,7 @@ exports.createCourse = (request, response) => {
   console.log(newCourse);
   db
       .collection("Courses")
-      .doc(request.body.courseId)
+      .doc(request.body.id)
       .set(newCourse)
       .then((doc) => {
         const responseCourse = newCourse;

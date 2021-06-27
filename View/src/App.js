@@ -5,6 +5,8 @@ import firebase from "firebase";
 import './App.css';
 //componenets
 import Navbar from "./components/Navbar";
+import Loading from './components/loading'
+import { Grid} from '@material-ui/core';
 //pages
 import Login from './pages/login';
 import Dashboard from './pages/Dashboard';
@@ -94,6 +96,12 @@ class App extends Component {
         this.insertGapiScript();
     }
     isUserSignedIn(Page) {
+        if(this.state.isSignedIn === null){
+            return (
+           <Grid container xs justify="center" direction="column" alignItems="center" className="loginCtr">
+           <Loading uiLoading="true" />
+            </Grid>)
+        }
         return this.state.isSignedIn ?
             <Page isSignedIn={this.state.isSignedIn} /> :
             <Login isSignedIn={this.state.isSignedIn} />
@@ -104,10 +112,10 @@ class App extends Component {
                 <Router>
                     <Switch>
 
-                        <Route exact path="/" component={() => this.isUserSignedIn(Dashboard)} />
+                        <Route exact path="/" component={() => this.isUserSignedIn(Dashboard) } />
                         <Route exact path="/login" component={() => this.isUserSignedIn(Dashboard)} />
                         <Route exact path="/dashboard" component={() => this.isUserSignedIn(Dashboard)} />
-                        <Route exact path="/createCourse" component={createCourse} />
+                        <Route exact path="/createCourse" component={createCourse } />
                         <Route exact path="/CourseList" component={() => this.isUserSignedIn(CourseList)}/>
                     </Switch>
                 </Router>

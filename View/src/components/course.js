@@ -8,18 +8,28 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import defaultImage from '../images/course1.png';
+import Loading from '../components/loading'
 
 export default function Course(props) {
-  if(props.data===null){
-   return <h1>Loadings</h1>
+  if (props.data === null) {
+    return (
+      <React.Fragment>
+        <main>
+          <Container className="cardGrid" maxWidth="md">
+            <Grid container spacing={4}>
+              <Loading uiLoading="true" />
+            </Grid>
+          </Container>
+        </main>
+      </React.Fragment>);
   }
-  console.log("data: "+ props.data);
+  console.log("data: " + props.data);
   return (
     <React.Fragment>
-    <main>      
+      <main>
         <Container className="cardGrid" maxWidth="md">
           <Grid container spacing={4}>
-          {/* {data.content.body.map(block => block.component)} */}
+            {/* {data.content.body.map(block => block.component)} */}
             {props.data.map((course) => (
               <Grid item key={course.id} xs={12} sm={6} md={4}>
                 <Card className="cardCourse">
@@ -32,16 +42,16 @@ export default function Course(props) {
                     <Typography gutterBottom variant="h5" component="h2">
                       {course.name}
                     </Typography>
-                    <Typography variant="body2"> 
-                    {course.descriptionHeading}
+                    <Typography variant="body2">
+                      {course.descriptionHeading}
                     </Typography>
                   </CardContent>
                   <CardActions>
                     <Button size="small" className="cardButton">
-                    Read more...
+                      Read more...
                     </Button>
                     <Button size="small" className="cardButton">
-                    Join Course
+                      Join Course
                     </Button>
                   </CardActions>
                 </Card>

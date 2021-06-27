@@ -4,6 +4,7 @@ import Course from '../components/course';
 import Button from '@material-ui/core/Button';
 import { Link } from '@material-ui/core';
 import NavSearch from '../components/NavSearch';
+import Loading from '../components/loading'
 import {getAllCourses} from '../api/server'
 export class CourseList extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ export class CourseList extends Component {
     }
     componentDidMount() {
         if(this.props.isSignedIn === null){
-            return <h1>Loadings</h1>
+            return <Loading uiLoading="true" />
         }
         getAllCourses().then((response) => {
             this.setState({

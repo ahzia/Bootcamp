@@ -6,13 +6,20 @@ async function getUserEnrolledCourses() {
             })
             .then(
                 function (response) {
+                    //convert respone to JS object
                     const courses = [];
-                    JSON.parse(response.body).courses.forEach((item) => {
-                        if (item.section == 'Bootcamp.af') {
-                            courses.push(item);
-                        }
-                    })
-                    resolve(courses)
+                    const jsonResponse = JSON.parse(response.body).courses;
+                    if (jsonResponse != null) {
+                        jsonResponse.forEach((item) => {
+                            if (item.section == 'Bootcamp.af') {
+                                courses.push(item);
+                            }
+                        })
+                        resolve(courses);
+                    }
+                    else {
+                        resolve(courses);
+                    }
                 });
     })
 }
@@ -25,21 +32,28 @@ async function getUserCourses() {
             })
             .then(
                 function (response) {
+                    //convert respone to JS object
                     const courses = [];
-                    JSON.parse(response.body).courses.forEach((item) => {
-                        console.log(item);
-                        if (item.section == 'Bootcamp.af') {
-                            courses.push(item);
-                        }
-                    })
-                    resolve(courses)
+                    const jsonResponse = JSON.parse(response.body).courses;
+                    if (jsonResponse != null) {
+                        jsonResponse.forEach((item) => {
+                            if (item.section == 'Bootcamp.af') {
+                                courses.push(item);
+                            }
+                        })
+                        resolve(courses)
+                    }
+                    else {
+                        resolve(courses)
+                    }
+
                 });
     })
 };
 async function createCourseInClassroom(name,
     description,
     descriptionHeading,
-    playListID) {
+    PlaylistId) {
     return new Promise((resolve, reject) => {
         window.gapi.client.classroom.courses
             .create({
@@ -49,15 +63,17 @@ async function createCourseInClassroom(name,
                     description: description,
                     ownerId: "me",
                     section: "Bootcamp.af",
-                    room: playListID,
+                    room: PlaylistId,
                 },
             })
             .then(
                 function (response) {
                     //return the created course object
+                    console.log(response)
                     resolve(response.result)
+
                 })
     }
     )
 }
-export { getUserEnrolledCourses, getUserCourses ,createCourseInClassroom };
+export { getUserEnrolledCourses, getUserCourses, createCourseInClassroom };

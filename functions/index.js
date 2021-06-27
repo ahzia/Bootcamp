@@ -16,4 +16,5 @@ const {
 app.post("/signup", signUpUser); // Signup and login with google
 app.get("/courses", getAllCourses); // /courses is the path for data
 app.post("/courses", createCourse);
+
 exports.api = functions.https.onRequest(app);

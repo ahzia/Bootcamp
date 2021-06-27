@@ -1,5 +1,6 @@
 async function createCoursePlaylist(playlistData) {
     return new Promise((resolve, reject) => {
+        console.log(playlistData);
         window.gapi.client.youtube.playlists
             .insert({
                 part: ["snippet"],
@@ -24,7 +25,7 @@ async function createCoursePlaylist(playlistData) {
                 function (response) {
                     //response.result has the parsed body
                     console.log("Response", response);
-                    playlistID = response.result.id;
+                    const playlistID = response.result.id;
                     resolve(playlistID)
                 });
     })

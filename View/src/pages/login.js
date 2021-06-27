@@ -6,12 +6,12 @@ import meet from '../images/google-meet.png';
 import calender from '../images/Google_Calendar.png';
 import classroom from '../images/google-classroom.png';
 import youtube from '../images/youtube.png';
-
+import Loading from '../components/loading'
 
 export class login extends Component {
     componentDidMount() {
         if(this.props.isSignedIn === null){
-            return <h1>Loadings</h1>
+            return <Loading uiLoading="true" />
         }
         else{
         window.gapi.load('signin2', () => {
