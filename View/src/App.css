@@ -124,3 +124,6 @@ overflow: hidden;
     text-decoration: none;
 }
 
+.visiblityHidden{
+    visibility: hidden;
+}

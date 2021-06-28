@@ -1,8 +1,6 @@
 import React, { Component, useState } from 'react'
 import { Grid, Typography } from '@material-ui/core';
-import Course from '../components/course';
-import Button from '@material-ui/core/Button';
-import { Link } from '@material-ui/core';
+import Course from '../components/Course';
 import NavSearch from '../components/NavSearch';
 import Loading from '../components/loading'
 import {getAllCourses} from '../api/server'

@@ -5,7 +5,6 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ImageUploader from 'react-images-upload';
-import Course from '../components/userCourse'
 import { Link } from '@material-ui/core';
 import { createCoursePlaylist } from '../api/gapi/youtube'
 import { createCourseInClassroom } from '../api/gapi/classroom'
@@ -46,18 +45,8 @@ export class createCourse extends Component {
   }
 
   render() {
-    // const handleClickOpen = () => {
-    // 	this.setState({
-    // 		todoId: '',
-    // 		title: '',
-    // 		body: '',
-    // 		buttonType: '',
-    // 		open: true
-    // 	});
-    // };
     const handleSubmit = (event) => {
       this.setState({
-
         uiLoading: true
       });
       event.preventDefault();
