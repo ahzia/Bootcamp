@@ -1,11 +1,9 @@
 import React, { Component, useState } from 'react'
-import Container from '@material-ui/core/Container';
 import { Grid, Typography } from '@material-ui/core';
 import Course from '../components/userCourse';
 import Button from '@material-ui/core/Button';
 import { Link } from '@material-ui/core';
 import Nav from '../components/Navbar';
-import axios from 'axios'
 import Loading from '../components/loading'
 import {getUserEnrolledCourses} from '../api/gapi/classroom'
 import {getUserCourses} from '../api/gapi/classroom'
