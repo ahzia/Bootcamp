@@ -15,7 +15,8 @@ import createCourse from './pages/createCourse';
 import CourseList from './pages/CourseList';
 import CourseDetail from './pages/CourseDetail';
 import tab from './components/tab';
-import MainCourse from './components/MainCourse';
+import MainCourse from './pages/MainCourse';
+import MainCourseTeacher from './pages/MainCourseTeacher';
 
 
 
@@ -34,8 +35,7 @@ class App extends Component {
                     <Route exact path="/CourseDetail" component={CourseDetail}/>
                     <Route exact path="/tab" component={tab}/>
                     <Route exact path="/MainCourse" component={MainCourse}/>
-                   
-                    
+                    <Route exact path="/MainCourseTeacher" component={MainCourseTeacher}/>
                 </Switch>
             </Router>
         

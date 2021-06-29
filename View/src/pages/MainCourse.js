@@ -19,8 +19,13 @@ const useStyles = makeStyles({
       width: '100%',
     },
   });
-  
+
+  const addTxt=()=>{
+    return  "";
+  }
+
   export default function MainCourse() {
+
     const classes = useStyles();
   
     return (
@@ -127,17 +132,17 @@ const useStyles = makeStyles({
         </span>
         </span>
         <span className="vid" id="txtarea">
-        <TextareaAutosize aria-label="Note Book" rowsMin={5} placeholder="Note Book" className="note" />
-        <Button style={{border:"2px solid  #ffd2d9", padding:"5px", width:"286px"}}>
+        <TextareaAutosize  aria-label="Note Book" rowsMin={5} placeholder="Note Book" className="note" />
+        <Button onClick={addTxt} style={{border:"2px solid  #ffd2d9", padding:"5px", width:"286px"}}>
         <IconButton color="inherit">
             <Plus />
           </IconButton>
-          Add Note
+          Add to Notes
         </Button>
         
         </span>
       </div>
       
     );
-  }
   
+}
