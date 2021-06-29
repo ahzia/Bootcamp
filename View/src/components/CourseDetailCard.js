@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '50vh',
   },
   }));
-2
 export default function ComplexGrid() {
   const classes = useStyles();
 

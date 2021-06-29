@@ -5,7 +5,6 @@ import firebase from "firebase";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //componenets
-import Navbar from "./components/Navbar";
 import Loading from './components/loading'
 import { Grid} from '@material-ui/core';
 //pages
