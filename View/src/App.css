@@ -126,6 +126,8 @@ overflow: hidden;
     text-decoration: none;
 }
 
+.visiblityHidden{
+  visibility: hidden;}
 .Container{
     margin: 4rem;
 
@@ -249,6 +251,4 @@ input.radio{
 .topic{
     padding: 20px;
     background-color: #ffd2d9;
-   
-
 }
