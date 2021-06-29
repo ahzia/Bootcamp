@@ -22,20 +22,31 @@ If You want to run a local version of our platform follows the steps mentioned i
 1. Clone the project 
   `$ git clone https://github.com/ahzia/bootcamp`
 2. install dependencies using npm:
--Backend Dependencies
+
+- Backend Dependencies
 In the Project Directory Run:
-`npm install`
--Frontend Dependencies
+  `npm install`
+  
+- Frontend Dependencies
 Go to the /View folder and run:
-`npm install`
-3.Serve the Backend 
+  `npm install`
+  
+3.Serve the Backend :
+
 Our Backend is Deployed To firebase, but if you want to run a local version of our Backend, In the Project Directory Run this Command:
-`firebase serve`
+
+  `firebase serve`
+
 Copy the endpoint,open [/View/api/server.js](https://github.com/ahzia/Bootcamp/blob/Main/View/src/api/server.js) and change:
-`const coursesEndpoint = <The Copied Endpoint>`
+
+  `const coursesEndpoint = <The Copied Endpoint>`
+  
 4.Run the Frontend
+
 in the /View Folder run:
-`npm start`
+
+  `npm start`
+  
 5. check the browser
 
 ### Prerequisites
@@ -68,7 +79,6 @@ Note: You must have a google classroom account and a default youtube channel
 
 Contributions, issues, and feature requests are welcome!
 Feel free to contribute 
-Feel free to check the [issues page](https://github.com/igorkol91/NewsweekProject/issues/1).
 
 ## Show your support
 
