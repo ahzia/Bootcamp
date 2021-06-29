@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import firebase from "firebase";
 //CSS
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 //componenets
 import Navbar from "./components/Navbar";
 import Loading from './components/loading'
@@ -12,7 +13,10 @@ import Login from './pages/login';
 import Dashboard from './pages/Dashboard';
 import createCourse from './pages/createCourse';
 import CourseList from './pages/CourseList';
-
+import CourseDetail from './pages/CourseDetail';
+import tab from './components/tab';
+import MainCourse from './pages/MainCourse';
+import MainCourseTeacher from './pages/MainCourseTeacher';
 
 class App extends Component {
     constructor(props) {
@@ -111,12 +115,15 @@ class App extends Component {
             <div className="App" >
                 <Router>
                     <Switch>
-
                         <Route exact path="/" component={() => this.isUserSignedIn(Dashboard) } />
                         <Route exact path="/login" component={() => this.isUserSignedIn(Dashboard)} />
                         <Route exact path="/dashboard" component={() => this.isUserSignedIn(Dashboard)} />
                         <Route exact path="/createCourse" component={createCourse } />
                         <Route exact path="/CourseList" component={() => this.isUserSignedIn(CourseList)}/>
+                        <Route exact path="/CourseDetail" component={CourseDetail}/>
+                        <Route exact path="/tab" component={tab}/>
+                        <Route exact path="/MainCourse" component={MainCourse}/>
+                        <Route exact path="/MainCourseTeacher" component={MainCourseTeacher}/>
                     </Switch>
                 </Router>
 
@@ -124,8 +131,5 @@ class App extends Component {
         );
 
     }
-
 }
 export default App;
-
-
