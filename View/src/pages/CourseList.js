@@ -24,11 +24,6 @@ export class CourseList extends Component {
             <Course />
             <br />
             <Course />
-            
-            
-    
-
-   
         </div>    
          
 

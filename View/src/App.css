@@ -4,6 +4,7 @@ body {
 }
 
 
+
 .paperBox{
     background: #fff;
     width: 600px;
@@ -78,6 +79,7 @@ overflow: hidden;
     width: 75vw;
     margin-left: 10rem;
     margin-top: 6rem;
+  
 }
 
 .btnDash{
@@ -124,3 +126,123 @@ overflow: hidden;
     text-decoration: none;
 }
 
+.Container{
+    margin: 4rem;
+
+    position: relative;
+    top: 2rem;
+
+}
+
+#first {
+    width:70vw;
+    float:left;
+    
+   
+}
+#second {
+    width:30vw;
+    overflow: hidden;
+    position: relative;
+    top:20vh;
+    left: -10vw;
+}
+
+.playlist{
+    width:20vw;
+   float: left;
+
+
+}
+.VidDiv{
+
+    width:60vw;
+   
+}
+.SideDiv{
+
+    width:20vw;
+    
+}
+
+#leftCol {
+    position: fixed;
+    width: 25vw;
+    overflow-y: scroll;
+    top: 15vh;
+    bottom: 10vh ;
+    border: 1px solid aliceblue;
+    padding: 30px;
+    background-color: #ffd2d9;
+    
+    
+}
+
+.subhead{
+    color: rgb(7, 7, 7);
+}
+
+.vid{
+    position: absolute;
+    width: 30vw;
+    top: 28vh;
+    bottom: 10vh ;
+    left: 35vw;
+}
+
+#txtBox{
+    top: 14vh;
+}
+
+#transcriptCol{
+    position: fixed;
+    width: 33vw;
+    overflow-y: scroll;
+    top: 68vh;
+    bottom: 10vh ;
+    left: 35vw;
+    background-color: #fff;
+    padding: 10px;
+    
+}
+
+fieldset{
+    overflow: hidden;
+}
+
+.radio{
+    float: left;
+    clear: none;
+}
+
+label{
+    float: left;
+    clear: none;
+    display: block;
+    padding: 0px 1em 0px 8px;
+}
+
+input[type=radio],
+input.radio{
+    float: left;
+    clear: none;
+    margin: 2px 0 0 2px;
+}
+
+.note{
+    width: 20vw;
+    padding: 30px;
+    background-color: #ffd2d9;
+    border: 1px solid aliceblue;
+
+}
+
+#txtarea{
+    position: fixed;
+    width: 20vw;
+    top: 12vh;
+    bottom: 10vh ;
+    left: 74vw;
+    padding: 30px;
+    background-color: #fff;
+}
