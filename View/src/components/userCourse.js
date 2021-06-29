@@ -7,42 +7,42 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Navbar from '../components/Navbar';
-import course from '../images/course1.png';
-
-const cards = [1, 2, 3];
-
-export default function Course() {
+import defaultImage from '../images/course1.png';
+import Loading from '../components/loading'
+export default function Course(props) {
+  if (props.data === null) {
+    return (
+      <Container className="cardGrid" maxWidth="md">
+        <Grid container spacing={4}><Loading uiLoading="true" />
+        </Grid>
+      </Container>);
+  }
 
   return (
     <React.Fragment>
-    <Navbar />
-    <main>      
+      <main>
         <Container className="cardGrid" maxWidth="md">
-         
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            {/* {data.content.body.map(block => block.component)} */}
+            {props.data.map((course) => (
+              <Grid item key={course.id} xs={12} sm={6} md={4}>
                 <Card className="cardCourse">
                   <CardMedia
-                    className="cardMedia"
-                    image={course}
-                    title="Image title"
+                    className={"cardMedia"}
+                    image={defaultImage}
+                    title={course.name}
                   />
                   <CardContent className="cardContent">
                     <Typography gutterBottom variant="h5" component="h2">
-                      Course Title
+                      {course.name}
                     </Typography>
-                    <Typography variant="body2"> 
-                    This is a course description. You can use this section to describe content of course.
+                    <Typography variant="body2">
+                      {course.descriptionHeading}
                     </Typography>
                   </CardContent>
                   <CardActions>
                     <Button size="small" className="cardButton">
-                    Enroll
-                    </Button>
-                    <Button size="small" className="cardButton">
-                    Read more...
+                      Read more...
                     </Button>
                   </CardActions>
                 </Card>
