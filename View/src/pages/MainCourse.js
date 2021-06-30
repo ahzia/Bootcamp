@@ -5,10 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Video from '../components/video';
 import vid from '../images/vid.mp4'
 import Tab from '../components/tab'
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import { TextField } from '@material-ui/core';
 import Button from "@material-ui/core/Button";
 import IconButton from '@material-ui/core/IconButton';
 import Plus from '@material-ui/icons/Add';
+import Navbar1 from '../components/Navbar';
+import { Navbar } from 'react-bootstrap';
+import Note from '../components/note'
 
 const VIDEO = {
     src:vid,
@@ -27,11 +30,12 @@ const useStyles = makeStyles({
   export default function MainCourse() {
 
     const classes = useStyles();
-  
+
     return (
-        
+
       <div >
-        <Typography variant="h6" style={{marginLeft:"10px", position:"fixed", top:"9vh"}}>TUTORIAL PLAYLIST</Typography >
+        <Navbar1 />
+        <Typography variant="h6" style={{marginLeft:"10px", position:"fixed", top:"21vh"}}>TUTORIAL PLAYLIST</Typography >
       <span id="leftCol" >
          <div id="videoTutorialPlaylist">
              <div class="video-home-menu">
@@ -63,7 +67,7 @@ const useStyles = makeStyles({
                    <p class="play"></p>
                    <Typography variant="body1" className="subhead" >GIT Tutorial For Beginner</Typography>
                      <span><Typography variant="body2" color="textSecondary" >Lesson - 4</Typography></span>
-                   
+
 
 
                </a>
@@ -78,7 +82,7 @@ const useStyles = makeStyles({
 
                    <Typography variant="body1" className="subhead" >GIT Tutorial For Beginner</Typography>
                      <span><Typography variant="body2" color="textSecondary" >Lesson - 6</Typography></span>
-                   
+
                </a>
                <hr />
                <a class="content" href="#">
@@ -113,12 +117,12 @@ const useStyles = makeStyles({
                </a>
                </div>
             </div>
-            
+
         </div>
-        
+
     </span>
     <span>
-    
+
         <span className="vid" >
          <Video src={vid}/>  
         </span>
@@ -132,17 +136,10 @@ const useStyles = makeStyles({
         </span>
         </span>
         <span className="vid" id="txtarea">
-        <TextareaAutosize  aria-label="Note Book" rowsMin={5} placeholder="Note Book" className="note" />
-        <Button onClick={addTxt} style={{border:"2px solid  #ffd2d9", padding:"5px", width:"286px"}}>
-        <IconButton color="inherit">
-            <Plus />
-          </IconButton>
-          Add to Notes
-        </Button>
-        
+        <Note />
         </span>
       </div>
-      
+
     );
-  
+
 }

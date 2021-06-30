@@ -11,11 +11,7 @@ export class CourseDetail extends Component {
                     <Grid  className="Container" >
                         <CourseDetailCard style={{width:"20vw"}} />     
                     </Grid>
-
-           
-                </div>     
-         
-
+                </div>
         );
     }
 }

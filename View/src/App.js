@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
 //CSS
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,6 +17,7 @@ import CourseDetail from './pages/CourseDetail';
 import tab from './components/tab';
 import MainCourse from './pages/MainCourse';
 import MainCourseTeacher from './pages/MainCourseTeacher';
+import note from './components/note';
 
 class App extends Component {
     constructor(props) {
@@ -123,6 +125,7 @@ class App extends Component {
                         <Route exact path="/tab" component={tab}/>
                         <Route exact path="/MainCourse" component={MainCourse}/>
                         <Route exact path="/MainCourseTeacher" component={MainCourseTeacher}/>
+                        <Route exact path="/note" component={note}/>
                     </Switch>
                 </Router>
 

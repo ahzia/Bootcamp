@@ -1,24 +1,19 @@
 import React from 'react';
 import Button from "@material-ui/core/Button";
 import MainCourse from './MainCourse';
-import { Link } from 'react-router-dom';
-
-
-
   export default function MainCourseTeacher() {
 
-  
     return (
-        
-      <div >
-        <MainCourse />
-        <span className="topic" style={{position:"relative", top:"50vh", left:"77vw", width:"286px",padding: "20px", backgroundcolor: "#ffd2d9"}}>
-        <Button>
-          Add Topic to your Course
-        </Button>
-        </span>
-      </div>
-      
+          <div>
+             <MainCourse />
+             <span style={{position:"relative", top:"-29vh", margin:"2px",padding:"10px"}}>
+              <Button variant="outlined" color="secondary">
+                Add New Topic
+              </Button>
+            </span>
+          </div>
+
+
     );
-  
-}
+
+} 

@@ -57,7 +57,7 @@ export default function SimpleTabs() {
   };
 
   return (
-    <div className="vid" id="txtBox" style={{position:"relative", top:"8vh", left:"2vw", width:"33vw"}}>
+    <div className="vid" id="txtBox" style={{position:"relative", top:"0.5vh", left:"2vw", width:"33vw"}}>
       <AppBar position="static" style={{background:"#ffd2d9", color:"#000"}}>
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
          <Tab label="Over View" {...a11yProps(0)} />
@@ -73,7 +73,7 @@ export default function SimpleTabs() {
              issues significant benefits to businesses such as attracting employees,
              customers.benefits to businesses such as attracting.
         </Typography>
-        
+
         </span>
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -97,4 +97,4 @@ export default function SimpleTabs() {
       </TabPanel>
     </div>
   );
-}
+} 

@@ -93,7 +93,7 @@ overflow: hidden;
 
 #profile{
     position: relative;
-    left: 55rem;
+    left: 50rem;
 }
 
 .imgProfile{
@@ -127,20 +127,18 @@ overflow: hidden;
 }
 
 .visiblityHidden{
-  visibility: hidden;}
+  visibility: hidden;
+}
+
 .Container{
     margin: 4rem;
-
     position: relative;
     top: 2rem;
-
 }
 
 #first {
     width:70vw;
     float:left;
-    
-   
 }
 #second {
     width:30vw;
@@ -153,14 +151,12 @@ overflow: hidden;
 .playlist{
     width:20vw;
    float: left;
-
-
 }
+
 .VidDiv{
-
     width:60vw;
-   
 }
+
 .SideDiv{
 
     width:20vw;
