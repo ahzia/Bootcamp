@@ -5,12 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Video from '../components/video';
 import vid from '../images/vid.mp4'
 import Tab from '../components/tab'
-import { TextField } from '@material-ui/core';
-import Button from "@material-ui/core/Button";
-import IconButton from '@material-ui/core/IconButton';
-import Plus from '@material-ui/icons/Add';
 import Navbar1 from '../components/Navbar';
-import { Navbar } from 'react-bootstrap';
 import Note from '../components/note'
 
 const VIDEO = {

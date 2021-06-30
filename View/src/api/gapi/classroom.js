@@ -11,7 +11,7 @@ async function getUserEnrolledCourses() {
                     const jsonResponse = JSON.parse(response.body).courses;
                     if (jsonResponse != null) {
                         jsonResponse.forEach((item) => {
-                            if (item.section == 'Bootcamp.af') {
+                            if (item.section === 'Bootcamp.af') {
                                 courses.push(item);
                             }
                         })
@@ -37,7 +37,7 @@ async function getUserCourses() {
                     const jsonResponse = JSON.parse(response.body).courses;
                     if (jsonResponse != null) {
                         jsonResponse.forEach((item) => {
-                            if (item.section == 'Bootcamp.af') {
+                            if (item.section === 'Bootcamp.af') {
                                 courses.push(item);
                             }
                         })
