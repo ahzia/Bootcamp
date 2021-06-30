@@ -3,8 +3,6 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
-
-
 .paperBox{
     background: #fff;
     width: 600px;
@@ -93,7 +91,7 @@ overflow: hidden;
 
 #profile{
     position: relative;
-    left: 50rem;
+    left: 45rem;
 }
 
 .imgProfile{
