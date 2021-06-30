@@ -121,10 +121,10 @@ class App extends Component {
                         <Route exact path="/dashboard" component={() => this.isUserSignedIn(Dashboard)} />
                         <Route exact path="/createCourse" component={createCourse } />
                         <Route exact path="/CourseList" component={() => this.isUserSignedIn(CourseList)}/>
-                        <Route exact path="/CourseDetail" component={CourseDetail}/>
+                        <Route exact path="/CourseDetail" component={() => this.isUserSignedIn(CourseDetail)}/>
                         <Route exact path="/tab" component={tab}/>
-                        <Route exact path="/MainCourse" component={MainCourse}/>
-                        <Route exact path="/MainCourseTeacher" component={MainCourseTeacher}/>
+                        <Route exact path="/MainCourse" component={() => this.isUserSignedIn(MainCourse)}/>
+                        <Route exact path="/MainCourseTeacher" component={() => this.isUserSignedIn(MainCourseTeacher)}/>
                         <Route exact path="/note" component={note}/>
                     </Switch>
                 </Router>
