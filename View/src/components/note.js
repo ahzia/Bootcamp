@@ -22,7 +22,7 @@ export default class YourComponent extends React.Component {
       handleOnSubmit(event) {
         event.preventDefault();
         this.setState({
-            pvalue: this.state.textareaValue + ' Saved', 
+            pvalue: this.state.textareaValue, 
         })
       }
 

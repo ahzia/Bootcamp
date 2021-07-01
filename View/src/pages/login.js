@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { Component} from 'react'
 import Paper from '@material-ui/core/Paper';
 import { Grid, Typography } from '@material-ui/core';
 import logo from '../logo.png';
@@ -27,7 +27,7 @@ export class login extends Component {
                             <img src={logo} alt="" className="logo" style={{ width: "10rem" }} />
                         </Grid>
                         <Grid container justify="center" style={{ paddingTop: "2vh" }}>
-                            <Typography variant="body2" variant="h6">Welcome back!</Typography>
+                            <Typography variant="body2" >Welcome back!</Typography>
                         </Grid>
                         <Grid container justify="center" style={{ paddingTop: "6vh" }}>
                             <div id="login-button">Sign in with Google Loading</div>

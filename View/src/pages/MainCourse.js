@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Video from '../components/video';
-import vid from '../images/vid.mp4'
 import Tab from '../components/tab'
 import Navbar1 from '../components/Navbar';
 import Note from '../components/note'
@@ -13,7 +12,8 @@ export class MainCourse extends Component {
     super(props)
     this.state = {
       playlistId: null,
-      courseId: null
+      courseId: null,
+      VideoId:"6rLN7gPbf7w"
     }
   }
   componentDidMount() {
@@ -115,7 +115,7 @@ export class MainCourse extends Component {
         </span>
         <span>
           <span className="vid" >
-            <Video src={vid} />
+            <Video src={this.state.VideoId} />
           </span>
           <span className="vid" id="txtBox">
             <Typography variant="h6" className="subhead" style={{ margin: "0.2rem" }}>GIT Tutorial</Typography>
