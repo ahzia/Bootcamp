@@ -2,8 +2,6 @@
 
 > This is the Sorce code for Bootcamp.af - one of the top 50 semifinalist Projects in Google Developer Student Club Solution Challange 2021.
 
-![Screenshot](./)
-
 ## Built With
 - React.js
 - Express.js
